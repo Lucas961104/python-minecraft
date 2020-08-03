@@ -1,0 +1,26 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Mon Aug  3 11:24:27 2020
+
+@author: D305
+"""
+
+from mcpi.minecraft import Minecraft
+import time
+mc=Minecraft.create()
+time.sleep(5)
+
+
+x,y,z=mc.player.getTilePos()
+
+mc.player.setTilePos(x,y,z)
+time.sleep(0.001)
+y=y+6
+mc.player.setTilePos(x,y,z)
+time.sleep(0.001)
+y=y+6
+t=0
+while True:
+    t=t+1
+    mc.postToChat("第"+str(t)+"次")
+    

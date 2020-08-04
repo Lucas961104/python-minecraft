@@ -1,1 +1,78 @@
 
+from mcpi.minecraft import Minecraft
+mc=Minecraft.create()
+mc.postToChat("I am watching you")
+
+x,y,z=mc.player.getTilePos()
+import random
+import time
+while True:
+    c=random.randrange(0,16)
+    mc.setBlocks(x-2,y-1,z-2,x+2,y-1,z+2,95,c)
+    mc.setBlocks(x-1,y-1,z-1,x+1,y-1,z+1,0)
+    time.sleep(0.5)
+
+
+
+x,y,z=mc.player.getTilePos()
+import random
+c=random.randrange(1,9)
+r=random.randrange(-4,+6)
+r1=random.randrange(-4,+6)
+mc.setBlocks(x-5,y,z-5,x+5,y,z+5,3)
+mc.setBlock(x+r,y+1,z+r1,38,c)
+
+
+
+x,y,z=mc.player.getTilePos()
+mc.setBlocks(x-5,y-5,z-5,x+5,y+5,z+5,137)
+mc.setBlocks(x-4,y-4,z-4,x+4,y+4,z+4,0)
+
+import time,random
+while True:
+    x,y,z=mc.player.getTilePos()
+    r=random.randrange(0,9)
+    mc.setBlock(x,y,z,38,r)
+    
+    
+import time
+while True:
+    x,y,z=mc.player.getTilePos()
+    mc.setBlocks(x-3,y,z-3,x+3,y,z+3,8)
+    time.sleep(2)
+    mc.setBlocks(x-2,y,z-2,x+2,y,z+2,19)
+    time.sleep(10)
+    
+ 
+while True:
+    x,y,z=mc.player.getTilePos()
+    a=mc.getBlock(x,y-1,z+1)
+    b=mc.getBlock(x,y-1,z-1)
+    c=mc.getBlock(x-1,y-1,z)
+    d=mc.getBlock(x+1,y-1,z) 
+    if a==9 or a==8 or b==9 or b==8 or c==9 or c==8 or d==9 or d==8:
+        mc.setBlocks(x-1,y-1,z-1,x+1,y-1,z+1,1)  
+
+
+x,y,z=mc.player.getTilePos()
+a=0
+while a<5:
+    mc.setBlocks(x+1,y-20,z,x+1,y+-10,z+20,19)
+    x=x+5
+    a=a+1
+from mcpi.minecraft import Minecraft
+mc=Minecraft.create()
+x,y,z=mc.player.getTilePos()
+try:    
+    a=int(input("number:"))
+    mc.setBlock(x,y,z,a)
+except:
+    print("error")
+    mc.postToChat("error")
+
+from mcpi.minecraft import Minecraft
+mc = Minecraft.create()
+ 
+userName = input("請輸入姓名: ")
+message = input("請輸入發言: ")
+mc.postToChat(" ["+userName + "] " + message)

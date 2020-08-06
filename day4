@@ -1,1 +1,244 @@
 
+# -*- coding: utf-8 -*-
+"""
+Created on Thu Aug  6 08:48:39 2020
+
+@author: D305
+"""
+
+
+
+
+from mcpi.minecraft import Minecraft
+mc=Minecraft.create()
+x,y,z = mc.player.getTilePos()
+mc.setBlocks(x-10,y,z-10,x+10,y,z+10,0)
+
+
+from mcpi.minecraft import Minecraft
+mc=Minecraft.create()
+x,y,z = mc.player.getTilePos()
+def plant(x,y,z):
+    mc.setBlocks(x-1,y+3,z-2,x+3,y+4,z+2,18)
+    mc.setBlocks(x,y+5,z-1,x+2,y+5,z+1,18)
+    mc.setBlocks(x,y+6,z,x+2,y+6,z,18)
+    mc.setBlocks(x+1,y+6,z-1,x+1,y+6,z+1,18)
+    mc.setBlocks(x+1,y,z,x+1,y+5,z,17)
+    mc.setBlock(x-1,y+4,z-2,0)
+    mc.setBlock(x-1,y+4,z+2,0)
+    mc.setBlock(x+3,y+4,z+2,0)
+    mc.setBlock(x+3,y+4,z-2,0)
+for m in range(0,6):
+    for i in range(0,6):
+        for n in range(0,6):
+            plant(x+m*10,y+i*m,z+m*n)
+            
+            
+            
+            
+x,y,z = mc.player.getTilePos()   
+L1=[]
+L2=[]
+L3=[]
+for i in range(1,4):
+    L1.append(1*i)
+    L2.append(2*i)
+    L3.append(3*i)
+print(L1,L2,L3)
+mc.setSign(x,y,z,63,0,str(L1),str(L2),str(L3),"")  
+
+
+
+  
+x,y,z = mc.player.getTilePos()   
+n=1
+for i in range(11):
+    for i in range(n):
+        mc.spawnEntity(x,y,z,60)
+    mc.postToChat(str(n)+"spawn")
+    n=n*2
+    
+import random
+x,y,z = mc.player.getTilePos() 
+for i in range(20):
+    r=random.randrange(1,5)
+    if r==1:
+        mc.setBlocks(x,y,z,x+4,y,z,1)
+        x=x+4
+    elif r==2:
+        mc.setBlocks(x,y,z,x-4,y,z,1)
+        x=x-4
+    elif r==3:
+        mc.setBlocks(x,y,z,x,y,z+4,1)
+        z=z+4
+    elif r==4:
+        mc.setBlocks(x,y,z,x,y,z-4,1)
+        z=z-4
+    elif r==4:
+        mc.setBlocks(x,y,z,x,y+4,z,1)
+        y=y+4        
+    elif r==4:
+        mc.setBlocks(x,y,z,x,y-4,z,1)
+        y=y-4    
+import time
+while True:
+    
+    mc.executeCommand("time add 50")
+    time.sleep(0.05)
+
+
+
+def qwe():
+    global s
+    s=8097
+print(str(s))
+
+import random
+x,y,z=mc.player.getTilePos()
+while True:
+    for m in range(10):
+        for i in range(10):
+            r=random.randrange(0,16)
+            mc.setBlock(x+m,y,z+i,35,r)    
+
+from random import randrange
+r=randrange(0,16)
+while True:
+    
+    hits=mc.events.pollBlockHits()
+    if len(hits)>0:
+        hit=hits[0]
+        block=mc.getBlockWithData(hit.pos)
+        data=block.data
+        if data==r:
+            mc.postToChat("yes")
+            mc.setBlock(hit.pos,57)
+            break
+        elif data!=r:
+            mc.postToChat("no")
+x,y,z=mc.player.getTilePos()
+for i in range(600):
+    mc.setBlocks(x,y,z,x+3,y,z)
+    z=z+1
+from time import time
+def LinearSearch():
+    r = randrange(1, 16)
+    sTime = time()
+    for i in range(1,16):
+       if r == i:
+           print("找到答案了!是"+str(i))
+           print("線性搜尋法:花了"+str(time()-sTime) + "秒")
+           break
+
+LinearSearch()
+
+
+
+def BinarySearch():
+    r = randrange(1, 16)
+    sTime = time()
+    low = 0
+    upper = 10000000
+    
+    while low <= upper:
+        mid = (low + upper) // 2
+        if mid < r:
+            low = mid +1
+            
+        elif mid > r:
+            upper = mid - 1
+        else:
+            print("找到答案了!是"+str(mid))
+            print("二元搜尋法:花了"+str(time()-sTime) + "秒")
+            return
+BinarySearch()
+
+
+
+from mcpi.minecraft import Minecraft
+mc = Minecraft.create()
+ 
+x,y,z = mc.player.getTilePos()
+base = 9
+height = (base//2)+1
+ 
+for i in range(height):
+    x1 = x + i
+    y1 = y + i
+    z1 = z + i
+    
+    x2 = x + base - i
+    #y與y2相同
+    z2 = z + base - i
+    mc.setBlocks(x1, y1, z1, x2, y1, z2, 24)
+for i in range(height):
+    x3 = x + i
+    y3 = y - i
+    z3 = z + i
+    
+    x4 = x + base - i
+    #y與y2相同
+    z4 = z + base - i
+    mc.setBlocks(x3, y3, z3, x4, y3, z4, 24)
+
+x,y,z = mc.player.getTilePos()
+base = 9
+height = (base//2)+1
+ 
+for i in range(height):
+    x1 = x + i
+    y1 = y + i
+    z1 = z + i
+    
+    x2 = x + base - i
+    #y與y2相同
+    z2 = z + base - i
+    mc.setBlocks(x1, y1, z1, x2, y1, z2, 24)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
